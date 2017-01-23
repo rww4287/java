@@ -37,7 +37,7 @@ public class Homework2 {
 				int kg = input.nextInt();
 				System.out.println("키를 입력하세요(m)");
 				double cm = input.nextDouble();
-				double result = (double) kg / (cm*cm);
+				double result = kg / (cm*cm);
 				String message3 = String.format("BMI는 %.2f 입니다",result);
 				System.out.println(message3);
 			}
