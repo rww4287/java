@@ -6,10 +6,17 @@ public class StudentMain {
 		Student jjs = new Student();
 		
 		jjs.introduce();
-		//jjs.name = "조정석";
-		jjs.setName("조정석");
+		
+		//jjs.name = "김우빈";
+		jjs.setName("김우빈");
+		jjs.setGrade(3);
+		jjs.setSchoolName("ktds");
+		
+		String[] books = {"Angular.js2", "React.js"};
+		jjs.setBooks(books);
 		
 		jjs.introduce();
+		jjs.study();
 	}
 
 }

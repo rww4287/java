@@ -23,6 +23,21 @@ public class Student {
 		}
 		
 	}
+	public void setSchoolName(String schoolName){
+		this.schoolName = schoolName;
+	}
+	
+	public void setGrade(int grade){
+		this.grade = grade;
+	}
+	
+	public void setClassRommNumber(int classRoomNumber){
+		this.classRoomNubmber = classRoomNumber;
+	}
+	public void setBooks(String[] books){
+		this.books = books;
+	}
+	
 	
 	//기능
 	/*
