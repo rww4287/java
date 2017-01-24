@@ -32,7 +32,7 @@ public class Seller {
 	}
 	
 	public void setMoney(int money){
-		this.money=money;
+		this.money = money;
 	}
 	
 	public int getMoney(){

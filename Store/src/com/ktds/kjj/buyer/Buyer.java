@@ -66,7 +66,7 @@ public class Buyer {
 	 * 구매자가 가진 상품 개수에 1 더해준다
 	 */
 	public void buy(Seller seller){
-		seller.sell(this); //객체를 넘기는게 아니고 메모리주소를 넘긴다.
+		seller.sell(this); //객체를 넘기는게 아니고 객체(Buyer의 인스턴스)의 메모리주소를 넘긴다.
 		this.productOuantity++;
 	}
 	
