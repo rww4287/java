@@ -31,6 +31,10 @@ public class Seller {
 		System.out.println(this);
 	}
 	
+	/**
+	 * 돈을 초기화 또는 갱신함
+	 * @param money
+	 */
 	public void setMoney(int money){
 		this.money = money;
 	}
