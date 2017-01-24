@@ -17,6 +17,18 @@ public class StudentMain {
 		
 		jjs.introduce();
 		jjs.study();
+		
+		
+		Student kjj = new Student();
+		kjj.setName("김정진");
+		kjj.setGrade(1);
+		kjj.setClassRommNumber(401);
+		kjj.setSchoolName("ktds university");
+		String[] book1 = {"Angular.js2", "React.js"};
+		kjj.setBooks(book1); //이렇게 일일이 매번 하기 어려우니까, 생성자를 사용하면 편하다.
+		
+		kjj.introduce();
+		kjj.test();
 	}
 
 }
