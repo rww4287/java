@@ -10,7 +10,9 @@ public class Cafe2 {
 		
 		Barista barista = new Barista();
 		barista.coffee(coffeeMachine);
+		System.out.println("=============");
 		barista.coffee(latteMachine);
+		System.out.println("=============");
 		barista.coffee(chocoLatteMachine);
 	}
 

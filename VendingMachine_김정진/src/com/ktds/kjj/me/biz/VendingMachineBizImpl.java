@@ -1,74 +1,99 @@
 package com.ktds.kjj.me.biz;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.ktds.kjj.me.dao.VendingMachineDao;
-import com.ktds.kjj.me.vo.VendingMachineVO;
-
-import static com.ktds.kjj.me.PriceVO.*;
+import static com.ktds.kjj.me.PriceConsts.COKE;
+import static com.ktds.kjj.me.PriceConsts.FANTA;
+import static com.ktds.kjj.me.PriceConsts.SPRITE;
 
 import java.util.Scanner;
+
+import com.ktds.kjj.me.dao.VendingMachineDao;
+import com.ktds.kjj.me.dao.VendingMachineDaoImpl;
+import com.ktds.kjj.me.vo.MoneyVO;
+import com.ktds.kjj.me.vo.StockVO;
 
 public class VendingMachineBizImpl implements VendingMachineBiz {
 
 	VendingMachineDao vendingMachineDao;
 
+	MoneyVO moneyVO;
+	StockVO stockVO;
+
 	Scanner input = new Scanner(System.in);
+	int choose = 0;
 
 	public VendingMachineBizImpl() {
-
+		vendingMachineDao = new VendingMachineDaoImpl();
 	}
 
 	@Override
-	public void chooseCoke() {
-
-	}
-
-	@Override
-	public void chooseSprite() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void chooseFanta() {
-		// TODO Auto-generated method stub
+	public void operator() {
+		System.out.println("Welcome VendingMachine!!~!~!");
+		setHavingMoney();
+		System.out.println("투입할 금액을 입력하세요.");
+		int insertMoney = input.nextInt();
+		showAndChoose(insertMoney);
 
 	}
 
 	public void setHavingMoney() {
 		System.out.print("보유할 금액을 입력하세요.");
 		int havingMoney = input.nextInt();
-		vendingMachineDao.setHavingMoeny(havingMoney);
+		vendingMachineDao.setHavingMoney(havingMoney);
+		System.out.println("clear setHavingMoney");
+	}
+
+	public void showAndChoose(int insertMoney) {
+		
+	//	int tempMoney = moneyVO.getMoneyOfPerson();
+	//	int tempStock = stockVO.getStockOfTotal();
+		
+		while (true) {
+			if (insertMoney < SPRITE) {
+				returnMoney(insertMoney);
+			} else if (insertMoney >= SPRITE && insertMoney < COKE) {
+				System.out.printf("3. Sprite (사이다)\n 선택하세요 : ");
+				choose = input.nextInt();
+				if (choose == 3) {
+					chooseSprite();
+					System.out.println(stockVO.getStockOfTotal());
+					System.out.println(moneyVO.getMoneyOfPerson());
+				}
+			} else if (insertMoney >= COKE && insertMoney < FANTA) {
+				System.out.printf("1. Coke (콜라)\n 3.S prite(사이다)\n선택하세요 : ");
+				choose = input.nextInt();
+				if (choose == 1) {
+					chooseCoke();
+				} else if (choose == 3) {
+					chooseSprite();
+				}
+			} else {
+				System.out.print("1. Coke(콜라)\n2. Fanta(환타)\n3. Sprite(사이다) \n선택하세요: ");
+				choose = input.nextInt();
+				if (choose == 1) {
+					chooseCoke();
+				} else if (choose == 2) {
+					chooseFanta();
+				} else if (choose == 3) {
+					chooseSprite();
+				}
+			}
+		}
 	}
 
 	@Override
-	public void insertMoney() {
-		System.out.println("투입할 금액을 입력하세요.");
-		int isertMoney = input.nextInt();
-		vendingMachineDao.insertMoney(isertMoney);
+	public void chooseCoke() {
+		vendingMachineDao.chooseCoke();
 	}
 
-	private void showBuyableDrink(int insertMoney) {
-		if (insertMoney < SPRITE) {
-			System.out.println("잔액이 부족합니다.");
-			insertMoney();
-		} else if (insertMoney >= SPRITE && insertMoney < COKE) {
-			showDrinkList(insertMoney);
-		}
+	@Override
+	public void chooseSprite() {
+		vendingMachineDao.chooseSprite();
 	}
 
-	public void showDrinkList(int insertMoney) {
-		if (insertMoney < SPRITE) {
-			returnMoney(insertMoney);
-		} else if (insertMoney >= SPRITE && insertMoney < COKE) {
-			// sprite
-		} else if (insertMoney >= COKE && insertMoney < FANTA) {
-			// sprite & coke
-		} else {
-			// sprite & coke & fanta
-		}
+	@Override
+	public void chooseFanta() {
+		vendingMachineDao.chooseFanta();
+
 	}
 
 	@Override

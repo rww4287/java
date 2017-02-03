@@ -1,48 +1,43 @@
 package com.ktds.kjj.me.dao;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.ktds.kjj.me.vo.MoneyVO;
-import com.ktds.kjj.me.vo.ProductVO;
-import com.ktds.kjj.me.vo.VendingMachineVO;
+import com.ktds.kjj.me.vo.StockVO;
 
 public class VendingMachineDaoImpl implements VendingMachineDao {
 
 	MoneyVO moneyVO;
-
-	List<ProductVO> productListOfPerson ;
-	List<ProductVO> productListOfMachine;
+	StockVO stockVO;
 
 	public VendingMachineDaoImpl() {
-		
+		moneyVO = new MoneyVO();
+		stockVO = new StockVO();
+
+		stockVO.setStockOfCoke(5);
+		stockVO.setStockOfFanta(4);
+		stockVO.setStockOfSprite(3);
 	}
 
 	@Override
 	public void chooseCoke() {
-
+		stockVO.setStockOfCoke((stockVO.getStockOfCoke() - 1));
+		stockVO.setStockOfCoke((stockVO.getStockOfCoke() + 1));
 	}
 
 	@Override
 	public void chooseFanta() {
-		// TODO Auto-generated method stub
+		stockVO.setStockOfFanta((stockVO.getStockOfFanta() - 1));
+		stockVO.setStockOfFanta((stockVO.getStockOfFanta() + 1));
 
 	}
 
 	@Override
 	public void chooseSprite() {
-		// TODO Auto-generated method stub
-
+		stockVO.setStockOfSprite((stockVO.getStockOfSprite() - 1));
+		stockVO.setStockOfSprite((stockVO.getStockOfSprite() + 1));
 	}
 
 	@Override
-	public void chooseDrink(int index) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void setHavingMoeny(int inputMoney) {
+	public void setHavingMoney(int inputMoney) {
 		moneyVO.setMoneyOfPerson(inputMoney);
 		moneyVO.setMoneyOfMachine(500000);
 	}
@@ -50,14 +45,14 @@ public class VendingMachineDaoImpl implements VendingMachineDao {
 	@Override
 	public void insertMoney(int insertMoney) {
 		moneyVO.setInsertMoney(insertMoney);
-		moneyVO.setMoneyOfMachine(moneyVO.getMoneyOfMachine() + insertMoney);
-		moneyVO.setMoneyOfPerson(moneyVO.getMoneyOfPerson() - insertMoney);
+		moneyVO.setMoneyOfMachine((moneyVO.getMoneyOfMachine() + insertMoney));
+		moneyVO.setMoneyOfPerson((moneyVO.getMoneyOfPerson() - insertMoney));
 	}
 
 	@Override
 	public void returnMoney(int insertMoney) {
-		moneyVO.setMoneyOfPerson(moneyVO.getMoneyOfPerson() + insertMoney);
-		moneyVO.setMoneyOfMachine(moneyVO.getMoneyOfMachine() - insertMoney);
+		moneyVO.setMoneyOfPerson((moneyVO.getMoneyOfPerson() + insertMoney));
+		moneyVO.setMoneyOfMachine((moneyVO.getMoneyOfMachine() - insertMoney));
 	}
 
 }
