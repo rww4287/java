@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+
+
+.write{
+
+	text-align: center;
+}
+
+.write > .box {
+
+	width: 500px;
+
+}
