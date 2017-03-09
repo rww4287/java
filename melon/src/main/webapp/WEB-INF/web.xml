@@ -38,4 +38,34 @@
     <servlet-name>ViewArtistWriteServlet</servlet-name>
     <url-pattern>/artist/write</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewAlbumListServlet</display-name>
+    <servlet-name>ViewAlbumListServlet</servlet-name>
+    <servlet-class>com.melon.album.web.ViewAlbumListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewAlbumListServlet</servlet-name>
+    <url-pattern>/album/list</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewAlbumWriteServlet</display-name>
+    <servlet-name>ViewAlbumWriteServlet</servlet-name>
+    <servlet-class>com.melon.album.web.ViewAlbumWriteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewAlbumWriteServlet</servlet-name>
+    <url-pattern>/album/write</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewAlbumPostServlet</display-name>
+    <servlet-name>ViewAlbumPostServlet</servlet-name>
+    <servlet-class>com.melon.album.web.ViewAlbumPostServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewAlbumPostServlet</servlet-name>
+    <url-pattern>/album/post</url-pattern>
+  </servlet-mapping>
 </web-app>

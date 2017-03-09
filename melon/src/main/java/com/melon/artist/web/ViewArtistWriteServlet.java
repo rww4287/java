@@ -42,8 +42,8 @@ public class ViewArtistWriteServlet extends HttpServlet {
 		artistVO.setDebutTitle(debutTitle);
 		
 		if( artistBiz.addNewArtist(artistVO)) {
-			PrintWriter out = response.getWriter();
-			out.write("OK");
+			PrintWriter out = response.getWriter(); //간단한 응답을 보내기위해 사용하는 객체(PrintWriter) 
+			out.write("OK"); //out.write("ok") 
 			out.flush();
 			out.close();
 		}

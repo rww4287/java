@@ -23,7 +23,5 @@ public class CharacterEncodingFilter implements Filter {
 		chain.doFilter(request, response); //Servlet에 요청하기/ 응답하기
 	}
 
-	public void init(FilterConfig fConfig) throws ServletException {
-	}
 
 }

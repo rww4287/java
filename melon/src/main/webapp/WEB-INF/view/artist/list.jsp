@@ -55,8 +55,9 @@
 			<td>
 				<fmt:parseNumber>
 					${fn:split(artist.artisId,'-')[2]}
-				</fmt:parseNumber></td>
-			<td>${artist.member}</td>
+				</fmt:parseNumber>
+				</td>
+			<td> <a href="/melon/album/list?artistId=${artist. artisId}">${artist.member}</a></td>
 			<td>${artist.debutDate}</td>
 		</tr>
 		</c:forEach>
