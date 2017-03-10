@@ -68,6 +68,7 @@ public class ViewAlbumWriteServlet extends HttpServlet {
 		if ( albumBiz.addNewAlbum(albumVO) ){
 			StringBuffer script = new StringBuffer();
 			script.append("<script type='text/javascript'>");
+			script.append("		opener.location.reload();");
 			script.append(" 	self.close();");
 			script.append("</script>");
 			

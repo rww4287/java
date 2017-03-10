@@ -30,7 +30,8 @@
 				<td>
 					${index.index}<br/>
 					<div>
-						<img src="/melon/album/post?albumId=${album.albumId}" width="150px" height="150px"/><br/>
+					<a href="/melon/music/list?albumId=${album.albumId}&artistId=${album.artistId}">
+						<img src="/melon/album/post?albumId=${album.albumId}" width="150px" height="150px"/></a><br/>
 						${album.albumName}<br/>
 						${album.artistVO.member}
 					</div>

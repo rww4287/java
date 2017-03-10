@@ -42,7 +42,7 @@ public class AlbumDaoImpl implements AlbumDao{
 			query.append("                         , PST ");
 			query.append("                         ) ");
 			query.append(" VALUES                   (  " );
-			query.append("							'AR-' || ");
+			query.append("							'AL-' || ");
 			query.append("							TO_CHAR(SYSDATE, 'YYYYMMDDHH24') || ");
 			query.append("							'-' || ");
 			query.append("							LPAD(ARTIST_ID_SEQ.NEXTVAL, 6, '0') ");
@@ -111,7 +111,7 @@ public class AlbumDaoImpl implements AlbumDao{
 			query.append("FROM		ALBM AL");
 			query.append("			, ARTIST AR");
 			query.append("WHERE		AL.ARTIST_ID = AR.ARTIST_ID");
-			query.append("AND		AR.ARTIST_ID = ?");
+
 	
 			stmt = conn.prepareStatement(query.toString());
 			rs = stmt.executeQuery();

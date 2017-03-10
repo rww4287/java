@@ -24,11 +24,12 @@ public class ArtistBizImpl implements ArtistBiz {
 
 	@Override
 	public List<ArtistVO> getAllArtists(ArtistSearchVO artistSearchVO) {
+		
 		int artistCount = artistDao.selectAllArtistsCount(artistSearchVO);
 		
 		Pager pager = artistSearchVO.getPager();
 		pager.setTotalArticleCount(artistCount);
-		
+	
 		if( artistCount == 0 ){
 			return new ArrayList<ArtistVO>();
 		}

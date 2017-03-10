@@ -68,4 +68,34 @@
     <servlet-name>ViewAlbumPostServlet</servlet-name>
     <url-pattern>/album/post</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewMusicListServlet</display-name>
+    <servlet-name>ViewMusicListServlet</servlet-name>
+    <servlet-class>com.melon.music.web.ViewMusicListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewMusicListServlet</servlet-name>
+    <url-pattern>/music/list</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewMusicWriteServlet</display-name>
+    <servlet-name>ViewMusicWriteServlet</servlet-name>
+    <servlet-class>com.melon.music.web.ViewMusicWriteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewMusicWriteServlet</servlet-name>
+    <url-pattern>/music/write</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewMusicPostServlet</display-name>
+    <servlet-name>ViewMusicPostServlet</servlet-name>
+    <servlet-class>com.melon.music.web.ViewMusicPostServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewMusicPostServlet</servlet-name>
+    <url-pattern>/music/post</url-pattern>
+  </servlet-mapping>
 </web-app>
