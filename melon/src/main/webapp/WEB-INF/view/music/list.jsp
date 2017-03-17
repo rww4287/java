@@ -13,10 +13,12 @@ $().ready(function(){
 	});
 	$(".play").click(function(){
 		var mp = $(this).data("mp");
-		var albumId = $(this).data("albumid");
+		var albumid = $(this).data("albumid");
+/* 		alert(mp);
+		alert(albumid); */
 		
 		var source = $("<source src='' type='audio/mp3' </source>");
-		source.attr("src",'/melon/mp3'+albumid+"/"+mp);
+		source.attr("src",'/melon/mp3/'+albumid+"/"+mp);
 		
 		$("#mp3player").find("video").html(source);
 		//$("#mp3player").find("video")[0].load();
@@ -42,13 +44,15 @@ $().ready(function(){
 			</tr>
 		<c:forEach items="${musicList}" var="music" varStatus="index">
 			<tr>
-				<td>${index.index}</td>
-				<td>${music.title}</td>
+				<td>${index.index+1}</td>
+				<td>
+					<a href="/melon/music/detail?musicId=${music.musicId}">${music.title}
+				</td>
 				<td>${music.albumVO.artistVO.member}</td>
 				<td>${music.albumVO.albumName}</td>
 				<td>${music.likeCount}</td>
 				<td><a href="/melon/music/post?musicId=${music.musicId}">다운로드</a></td>
-				<td class="play" data-musicid="${music.musicId}" data-mp="${music.mp3File}">듣기</td>
+				<td class="play" data-albumid="${music.albumId}" data-mp="${music.mp3File}">듣기</td>
 				
 			</tr>
 		</c:forEach>

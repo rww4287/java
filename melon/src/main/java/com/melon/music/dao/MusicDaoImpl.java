@@ -223,9 +223,9 @@ public class MusicDaoImpl implements MusicDao{
 				
 				AlbumVO albumVO = musicVO.getAlbumVO();
 				
-				albumVO.setAlbumId(rs.getString("ALBM_ID"));
+				albumVO.setAlbumId(rs.getString("AL_ALBM_ID"));
 				albumVO.setAlbumName(rs.getString("ALBM_NM"));
-				albumVO.setArtistId(rs.getString("ARTIST_ID"));
+				albumVO.setArtistId(rs.getString("AL_ARTIST_ID"));
 				albumVO.setReleaseDate(rs.getString("RLS_DT"));
 				albumVO.setPublisher(rs.getString("PBLSHR"));
 				albumVO.setEntertainment(rs.getString("ENTMNT"));
@@ -296,7 +296,7 @@ public class MusicDaoImpl implements MusicDao{
 			query.append("          , M.MSCN "                                 );
 			query.append("          , M.DRTR "                                 );
 			query.append("          , M.LRCS "                                 );
-			query.append("          , AL.ALBM_ID "                             );
+			query.append("          , AL.ALBM_ID AL_ALBM_ID"                   );
 			query.append("          , AL.ALBM_NM "                             );
 			query.append("          , AL.ARTIST_ID "                           );
 			query.append("          , TO_CHAR(AL.RLS_DT, 'YYYY-MM-DD') RLS_DT ");
@@ -304,7 +304,7 @@ public class MusicDaoImpl implements MusicDao{
 			query.append("          , AL.ENTMNT "                              );
 			query.append("          , AL.GNR "                                 );
 			query.append("          , AL.PST "                                );
-			query.append("          , AR.ARTIST_ID "                           );
+			query.append("          , AR.ARTIST_ID AR_ARTIST_ID"               );
 			query.append("          , AR.DEBUT_TTL "                           );
 			query.append("          , AR.MBR "                                 );
 			query.append("          , AR.DEBUT_DT  "                           );
@@ -330,6 +330,24 @@ public class MusicDaoImpl implements MusicDao{
 				musicVO.setDirector(rs.getString("DRTR"));
 				musicVO.setLyrics(rs.getString("LRCS"));
 				
+				AlbumVO albumVO = musicVO.getAlbumVO();
+				
+				albumVO.setAlbumId(rs.getString("AL_ALBM_ID"));
+				albumVO.setAlbumName(rs.getString("ALBM_NM"));
+				albumVO.setArtistId(rs.getString("ARTIST_ID"));
+				albumVO.setReleaseDate(rs.getString("RLS_DT"));
+				albumVO.setPublisher(rs.getString("PBLSHR"));
+				albumVO.setEntertainment(rs.getString("ENTMNT"));
+				albumVO.setGenre(rs.getString("GNR"));
+				albumVO.setPost(rs.getString("PST"));
+				
+				ArtistVO artistVO = albumVO.getArtistVO();
+				
+				artistVO.setArtisId(rs.getString("AR_ARTIST_ID"));
+				artistVO.setDebutDate(rs.getString("DEBUT_DT"));
+				artistVO.setDebutTitle(rs.getString("DEBUT_TTL"));
+				artistVO.setMember(rs.getString("MBR"));
+
 			}
 			return musicVO;
 			
