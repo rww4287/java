@@ -16,33 +16,53 @@
 <body>
 	<h1>List</h1><hr/>
 	<p>${totalUser}명의 USER가 검색되었습니다.</p>
-	<table>
-		<tr>
-			<th>번호</th>
-			<th>ID</th>
-			<th>이름</th>
-			<th>POINT</th>
-			<th>권한</th>
-		</tr>
-		<c:forEach items="${userList}" var="user">
-		<tr>
-			<td>${user.index}</td>
-			<td>${user.userId}</td>
-			<td><a href="/melon-admin/user/detail?userId=${user.userId}">${user.userName}</a></td>
-			<td>${user.userPoint}</td>
-			<td>${user.authorizationVO.authorizationName}</td>
-		</tr>
-		</c:forEach>
-	</table>
+	<form method="post" action="/melon-admin/user/authcheck">
+		<table>
+			<tr>
+				<th>번호</th>
+				<th>ID</th>
+				<th>이름</th>
+				<th>POINT</th>
+				<th>권한</th>
+			</tr>
+			<c:forEach items="${userList}" var="user">
+			<tr>
+				<td><input type="checkbox" name="checkuser" value="${user.userId}">${user.index}</td>
+				<td>${user.userId}</td>
+				<td><a href="/melon-admin/user/detail?userId=${user.userId}">${user.userName}</a></td>
+				<td>${user.userPoint}</td>
+				<td>${user.authorizationVO.authorizationName}</td>
+			</tr>
+			</c:forEach>
+		</table>
 	<div>
-		<form id="searchForm">
 			${pager}
-		</form>
 	</div>
-
-	<input type="button" value="회원추가">
-	<input type="button" value="일괄수정">
-	<input type="button" value="일괄삭제">
+			<select name="toAuth">
+				<c:forEach items="${authList}" var="auth">
+					<option value="${auth.authorizationId}">${auth.authorizationName}</option>
+				</c:forEach>
+					<option value="">권한없음</option>
+			</select>
+		<input type="submit" value="회원권한수정"/>
+		</form>
+		
+		<form method="post" action="/melon-admin/user/authmodify">
+			<select name="auth">
+				<c:forEach items="${authList}" var="auth">
+					<option value="${auth.authorizationId}">${auth.authorizationName}</option>
+				</c:forEach>
+				<option value="">권한없음</option>
+			</select>
+			<select name="auth">
+				<c:forEach items="${authList}" var="auth">
+					<option value="${auth.authorizationId}">${auth.authorizationName}</option>
+				</c:forEach>
+					<option value="">권한없음</option>
+			</select>
+			<input type="submit" value="일괄수정" />
+		</form>
+		
 	
 </body>
 </html>

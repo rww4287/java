@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -329,6 +330,7 @@ public class UserDaoImpl implements UserDao {
 			conn = DriverManager.getConnection(url,"MELON","melon");
 			StringBuffer query = new StringBuffer();
 			
+
 			query.append(" UPDATE USR ");
 			query.append(" SET	  ");
 			query.append("		  USR_NM = ? ");
@@ -368,6 +370,67 @@ public class UserDaoImpl implements UserDao {
 		
 	}
 
+	@Override
+	public int updateUserAuth(String[] userAuth) {
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+		} catch (ClassNotFoundException e) {
+			throw new RuntimeException(e.getMessage(),e);
+		}
+		
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		
+		String url = "jdbc:oracle:thin:@localhost:1521:XE";
+		
+		try {
+			conn = DriverManager.getConnection(url,"MELON","melon");
+			StringBuffer query = new StringBuffer();
+			
+			query.append(" UPDATE USR ");
+			query.append(" SET	  ");
+			query.append(" 		  ATHRZTN_ID = ? ");
+			
+			if( userAuth[0] == null || userAuth[0].length() == 0 ){
+				query.append(" WHERE   ATHRZTN_ID IS NULL");
+			} else {
+				query.append(" WHERE   ATHRZTN_ID = ?");
+			}
+			
+			stmt = conn.prepareStatement(query.toString());
+			
+			if(userAuth[1] == null || userAuth[1].length() == 0 ){
+				stmt.setNull(1,Types.VARCHAR);
+			} else {
+				stmt.setString(1, userAuth[1]);
+			}
+			
+			if(userAuth[0] != null && userAuth[0].length() > 0){
+				stmt.setString(2, userAuth[0]);
+			} 
+			return stmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e.getMessage(),e);
+		} finally {
+			try {
+				if(rs != null){
+					rs.close();
+				}
+			} catch (SQLException e) {}
+			try {
+				if(stmt != null){
+					stmt.close();
+				}
+			} catch (SQLException e) {}
+			try {
+				if(conn != null){
+					conn.close();
+				}
+			} catch (SQLException e) {}
+		}
+	}
 	@Override
 	public int delecteOneUser(String userId) {
 		try {

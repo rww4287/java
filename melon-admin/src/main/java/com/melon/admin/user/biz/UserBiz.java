@@ -17,6 +17,8 @@ public interface UserBiz {
 	
 	public boolean modifyUserInfo(UserVO userVO);
 	
+	public boolean modifyUserAuth(String[] userAuth);
+	
 	public boolean delecteOneUser(String userId);
 	
 }

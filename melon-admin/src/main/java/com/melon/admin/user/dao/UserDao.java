@@ -27,6 +27,8 @@ public interface UserDao {
 	
 	public int updateUserInfo(UserVO userVO);
 	
+	public int updateUserAuth(String[] userAuth);
+	
 	public int delecteOneUser(String userId);
 	
 	public int selectCountByUserId(UserSearchVO userSearchVO);

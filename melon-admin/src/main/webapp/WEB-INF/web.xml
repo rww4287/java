@@ -97,4 +97,24 @@
     <servlet-name>DoUserModifyActionServlet</servlet-name>
     <url-pattern>/user/modify</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoUserAuthModifyActionServlet</display-name>
+    <servlet-name>DoUserAuthModifyActionServlet</servlet-name>
+    <servlet-class>com.melon.admin.user.web.DoUserAuthModifyActionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoUserAuthModifyActionServlet</servlet-name>
+    <url-pattern>/user/authmodify</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoAuthCheckActionServlet</display-name>
+    <servlet-name>DoAuthCheckActionServlet</servlet-name>
+    <servlet-class>com.melon.admin.user.web.DoAuthCheckActionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoAuthCheckActionServlet</servlet-name>
+    <url-pattern>/user/authcheck</url-pattern>
+  </servlet-mapping>
 </web-app>

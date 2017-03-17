@@ -1,5 +1,6 @@
 package com.melon.admin.user.service;
 
+import java.sql.Types;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -62,7 +63,10 @@ public class UserServiceImpl implements UserService{
 		// 권한 정보를 수정했다면 
 		if ( userVO.getAuthorizationId() != null && userVO.getAuthorizationId().length() > 0 ){
 			tempUserVO.setAuthorizationId(userVO.getAuthorizationId());
+		} else {
+			tempUserVO.setAuthorizationId(null);
 		}
+		
 		if ( userVO.getUserPoint() >0 ){
 			tempUserVO.setUserPoint(userVO.getUserPoint());
 		}
@@ -73,7 +77,22 @@ public class UserServiceImpl implements UserService{
 		return userBiz.modifyUserInfo(tempUserVO);
 		
 	}
-
+	@Override
+	public boolean modifyUserAuth(String[] userAuth) {
+		return userBiz.modifyUserAuth(userAuth);
+	}
+	@Override
+	public boolean modifyUserAllAuth(String[] userArray, String toAuth, String fromAuth) {
+		
+		UserVO userVO = null;
+		for(String userId : userArray){
+			userVO = new UserVO();
+			userVO.setUserId(userId);
+			userVO.setAuthorizationId(toAuth);
+			modifyUserInfo(userVO);
+		}
+		return true;
+	}
 	@Override
 	public boolean delecteOneUser(String userId) {
 		return userBiz.delecteOneUser(userId);

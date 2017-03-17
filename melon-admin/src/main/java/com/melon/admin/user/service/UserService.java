@@ -20,6 +20,10 @@ public interface UserService {
 	
 	public boolean modifyUserInfo(UserVO userVO);
 	
+	public boolean modifyUserAuth(String[] userAuth);
+	
+	public boolean modifyUserAllAuth(String[] userArray, String toAuth, String fromAuth);
+	
 	public boolean delecteOneUser(String userId);
 	
 }

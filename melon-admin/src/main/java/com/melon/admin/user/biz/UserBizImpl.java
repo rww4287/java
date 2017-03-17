@@ -50,6 +50,10 @@ public class UserBizImpl implements UserBiz{
 	public boolean modifyUserInfo(UserVO userVO) {
 		return userDao.updateUserInfo(userVO) > 0;
 	}
+	@Override
+	public boolean modifyUserAuth(String[] userAuth) {
+		return userDao.updateUserAuth(userAuth)>0;
+	}
 
 	@Override
 	public boolean delecteOneUser(String userId) {
