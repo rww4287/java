@@ -3,6 +3,7 @@
 	<name>melon-admin</name>
 	<comment></comment>
 	<projects>
+		<project>melon</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
@@ -28,4 +29,11 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>melon</name>
+			<type>2</type>
+			<location>C:/Users/Admin/Documents/java/melon</location>
+		</link>
+	</linkedResources>
 </projectDescription>

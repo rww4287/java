@@ -31,12 +31,15 @@ public class UserDaoImpl implements UserDao{
 			query.append("                    ,USR_NM ");
 			query.append("                    ,USR_PWD ");
 			query.append("                    ,USR_PNT ");
+			query.append("                    ,ATHRZTN_ID ");
 			query.append("					) ");
 			query.append(" VALUES           ( ");
 			query.append("                    	? ");
 			query.append("                    , ? ");
 			query.append("                    , ? ");
 			query.append("                    , 0 ");
+			// 가입을 하면 일반사용자가 되게 만들어라.
+			query.append("                    , 'AT-2017032009-000052'");
 			query.append("                  ) ");
 			
 			stmt = conn.prepareStatement(query.toString());

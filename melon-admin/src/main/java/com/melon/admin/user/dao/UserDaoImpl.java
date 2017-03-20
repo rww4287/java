@@ -257,6 +257,7 @@ public class UserDaoImpl implements UserDao {
 			query.append(" FROM		USR U ");
 			query.append("			, ATHRZTN A ");
 			query.append(" WHERE	U.ATHRZTN_ID = A.ATHRZTN_ID(+) ");
+			query.append(" AND		U.ATHRZTN_ID =  'AT-2017032009-000050' ");
 			query.append(" AND		U.USR_ID = ? ");
 			query.append(" AND		U.USR_PWD = ? ");
 			

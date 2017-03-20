@@ -39,10 +39,13 @@ public class MusicServiceImpl implements MusicService{
 		MusicVO music = musicBiz.getOneMusic(musicId);
 		
 		if( music != null ){
+			if(userVO == null ){
+				return music;
+			}
 			userBiz.managePoint(userVO.getUserId(), -5);
 			int userPoint = userVO.getUserPoint();
 			userVO.setUserPoint(userPoint-5);
-		}
+		} 
 		
 		return music;
 	}
@@ -51,7 +54,10 @@ public class MusicServiceImpl implements MusicService{
 	public boolean deleteOneMusic(String musicId) {
 		return musicBiz.deleteOneMusic(musicId);
 	}
-	
-	
+	@Override
+	public boolean increaseMusicCount(String musicId) {
+		return musicBiz.increaseMusicCount(musicId);
+	}
+
 
 }

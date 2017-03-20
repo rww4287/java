@@ -16,5 +16,5 @@ public interface MusicService{
 	
 	public boolean deleteOneMusic(String musicId);
 	
-	
+	public boolean increaseMusicCount(String musicId);
 }

@@ -9,6 +9,8 @@
 <script type="text/javascript" src="/melon/static/js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
 	$().ready(function() {
+		
+		<c:if test="${isOperatorUser || isAdminUser}">
 		$("input[type=button]").click(function() {
 			/*
 				새로운 창 띄우기
@@ -17,13 +19,15 @@
 			
 			
 		});
+		</c:if>
 	});
 </script>
 </head>
 <body>
 
+<c:if test="${isOperatorUser || isAdminUser}">
 	<input type="button" value="앨범 등록" /><br/>
-
+</c:if>
 	<table>
 		<tr>
 			<c:forEach items="${albumList}" var="album" varStatus="index"> <!-- index를 통해 몇 번째 반복인지 알 수 있다 -->

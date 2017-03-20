@@ -117,4 +117,14 @@
     <servlet-name>DoAuthCheckActionServlet</servlet-name>
     <url-pattern>/user/authcheck</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewLikeCountRankingServlet</display-name>
+    <servlet-name>ViewLikeCountRankingServlet</servlet-name>
+    <servlet-class>com.melon.admin.music.web.ViewLikeCountRankingServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewLikeCountRankingServlet</servlet-name>
+    <url-pattern>/music/ranking</url-pattern>
+  </servlet-mapping>
 </web-app>

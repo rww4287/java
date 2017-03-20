@@ -9,6 +9,10 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/WEB-INF/view/error/404.jsp</location>
+  </error-page>
   <filter>
     <display-name>CharacterEncodingFilter</display-name>
     <filter-name>CharacterEncodingFilter</filter-name>
@@ -155,4 +159,14 @@
     <filter-name>LoginCheckFilter</filter-name>
     <url-pattern>/music/*</url-pattern>
   </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoLikeCountControlsServlet</display-name>
+    <servlet-name>DoLikeCountControlsServlet</servlet-name>
+    <servlet-class>com.melon.music.web.DoLikeCountControlsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoLikeCountControlsServlet</servlet-name>
+    <url-pattern>/user/likecount</url-pattern>
+  </servlet-mapping>
 </web-app>

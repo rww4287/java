@@ -14,4 +14,6 @@ public interface MusicBiz {
 	public MusicVO getOneMusic(String musicId);
 	
 	public boolean deleteOneMusic(String musicId);
+	
+	public boolean increaseMusicCount(String musicId);
 }

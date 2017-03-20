@@ -36,6 +36,7 @@ public class ViewMusicDetailServlet extends HttpServlet {
 		MusicVO music = musicService.getOneMusic(musicId, user);
 		
 		request.setAttribute("music", music);
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/music/detail.jsp");
 		dispatcher.forward(request, response);
 	}

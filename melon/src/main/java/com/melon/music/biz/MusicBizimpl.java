@@ -45,5 +45,9 @@ public class MusicBizimpl implements MusicBiz{
 	public boolean deleteOneMusic(String musicId) {
 		return musicDao.deleteOneMusic(musicId)>0;
 	}
+	@Override
+	public boolean increaseMusicCount(String musicId) {
+		return musicDao.addMusicCount(musicId)>0;
+	}
 
 }
